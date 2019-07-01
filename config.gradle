@@ -1,0 +1,33 @@
+ext{
+    android = [
+            compileSdkVersion          : 28,
+            buildToolsVersion          : "28.0.3",
+            minSdkVersion              : 16,
+            targetSdkVersion           : 28,
+            applicationId              : "com.example.activitylifecycletest",
+            versionCode                : getVersionCode(),
+            versionName                : "1.0"
+    ]
+
+    version = [
+            androidSupportSdkVersion   : "28.0.0",
+    ]
+
+    dependencies = [
+            //support
+            "appcompat-v7"             : "com.android.support:appcompat-v7:${version["androidSupportSdkVersion"]}",
+
+            //test
+            "junit"                    : "junit:junit:4.12",
+            "timber"                   : "com.jakewharton.timber:timber:4.7.0",
+
+
+    ]
+}
+
+
+// 以日期为VersionCode
+static def getVersionCode() {
+    def date = new Date().format("yyMMdd", TimeZone.getTimeZone("GMT+8"))
+    return Integer.parseInt(date)
+}
